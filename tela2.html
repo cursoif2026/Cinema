@@ -6,11 +6,202 @@
 <link rel="stylesheet" type="text/css" href="tela2.css" />
 </head>
 <body>
-   
+    <!-- O Modal TELA 3 -->
+
+  <dialog id="modalFilme">
+
+    <div class="theatre">
+  
+  <div class="cinema-seats left">
+    <div class="cinema-row row-1">
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+    </div>
+
+    <div class="cinema-row row-2">
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+    </div>
+
+    <div class="cinema-row row-3">
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+    </div>
+
+    <div class="cinema-row row-4">
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+    </div>
+
+    <div class="cinema-row row-5">
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+    </div>
+
+    <div class="cinema-row row-6">
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+    </div>
+
+    <div class="cinema-row row-7">
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+    </div>
+  </div>
+
+
+  <div class="cinema-seats right">
+    <div class="cinema-row row-1">
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+    </div>
+
+    <div class="cinema-row row-2">
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+    </div>
+
+    <div class="cinema-row row-3">
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+    </div>
+
+    <div class="cinema-row row-4">
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+    </div>
+
+    <div class="cinema-row row-5">
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+    </div>
+
+    <div class="cinema-row row-6">
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+    </div>
+
+    <div class="cinema-row row-7">
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+    </div>
+  </div>
+  
+</div>
+    <div class="container mt-4">
+     <div class="input-group mb-3">  
+
+        <img id="filme">
+        <h2 id="tituloModal"></h2>
+        <p id="horarioModal"></p>
+      
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+          <label class="form-check-label" for="flexCheckDefault">
+            Inteira R$ 20,00
+          </label>        
+          <label for="quantidade" class="form-label">Quantidade</label>
+          <input type="number" class="form-control" id="quantidade" name="quantidade" value="1" min="1" max="100">
+        </div>
+          
+        
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+          <label class="form-check-label" for="flexCheckChecked">
+            Meia entrada R$ 10,00
+          </label>        
+          <label for="quantidade" class="form-label">Quantidade</label>
+          <input type="number" class="form-control" id="quantidade" name="quantidade" value="1" min="1" max="100">
+        </div>
+
+        <div class="form-check">
+          <label class="form-label">Total</label>
+          <div class="input-group">
+             <span class="input-group-text">R$</span>
+              <!-- Campo readonly para exibir o resultado -->
+             <input type="text" id="total" class="form-control" placeholder="0.00" readonly>
+          </div>
+        </div>
+        <button id="btnFechar">Fechar</button>
+     </div> 
+    </div>
+    
+  </dialog>
+
   <div class="container">
     
-    <div clas="sair">   
-       <button id="sair"></button>      
+    <div class="sair">   
+       <button type="button" class="btn-close" aria-label="Close"></button>
     </div>
 
     <div class="cabecalho">
@@ -21,15 +212,26 @@
     <div class="grid-container">   
       
       <div class="card" style="width: 18rem;">
-        <img src="./filmes/filme1.jpg" class="card-img-top" alt="...">
+        <img src="./filmes/filme1.jpeg" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">The Batman</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <h5 class="card-title">Avatar</h5>
+          <p class="card-text">Ficção</p>
+          <p class="card-text">2hs</p>
+          <p class="card-text">Horários dispúniveis</p>          
         </div>
+       
+        <div id="horarios" class="horarios">
+          <button id="hora1f1" type="button" class="btn btn-primary btn-sm">10:00</button>
+          <button id="hora2f1" type="button" class="btn btn-secondary btn-sm">14:00</button>
+          <button id="hora3f1" type="button" class="btn btn-secondary btn-sm">16:00</button>
+          <button id="hora4f1" type="button" class="btn btn-secondary btn-sm">22:00</button>           
+        </div>  
       </div>
+
+     
+
       <div class="card" style="width: 18rem;">
-        <img src="./filmes/filme2.jpg" class="card-img-top" alt="...">
+        <img src="./filmes/filme3.jpeg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Card title</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
@@ -38,25 +240,35 @@
       </div>
 
       <div class="card" style="width: 18rem;">
-        <img src="./filmes/filme3.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-
-      <div class="card" style="width: 18rem;">
-        <img src="./filmes/filme4.jpg" class="card-img-top" alt="...">
+        <img src="./filmes/filme4.jpeg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Card title</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
           <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
       </div>      
+
+      <div class="card" style="width: 18rem;">
+        <img src="./filmes/filme5.jpeg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>      
+
+      <div class="card" style="width: 18rem;">
+        <img src="./filmes/filme6.jpeg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Avatar</h5>
+          <p class="card-text">Lançamento</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>           
+
     </div>
   <div>
-
+ 
 </body>
 </html>
 

@@ -1,0 +1,32 @@
+document.addEventListener("DOMContentLoaded",function() { 
+
+//captura o botão clicado para saber qual horário foi selecionado
+const horario = document.getElementById("horarios");
+horario.addEventListener("click", function(event) {
+ const hora = (event.target)
+ console.log(hora);
+ const filme=""
+ 
+ //primeiro horário
+if (hora === "hora1f1" | hora === "hora2f1" | hora === "hora3f1" | hora === "hora4f1")  {
+    filme="Avatar";
+    
+    } else if (hora === "hora1f2" | hora === "hora2f2" | hora === "hora3f2" | hora === "hora4f2") { 
+    filme="Avatar1";
+    }else if (hora === "hora1f3" | hora === "hora2f3" | hora === "hora3f3" | hora === "hora4f3") {
+    filme="Anaconda";
+    } else if (hora === "hora1f4" | hora === "hora2f4" | hora === "hora3f4" | hora === "hora4f4") {
+    filme="BrancadeNeve";
+    } else if (hora === "hora1f5" | hora === "hora2f5" | hora === "hora3f5" | hora === "hora4f5") { 
+   filme="Zootopia";
+}
+  salvaFilme(hora,filme);
+ 
+})
+
+})
+
+function salvaFilme (horario,nFilme){
+  
+  sessionStorage.setItem(horario, nFilme);
+}

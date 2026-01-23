@@ -1,0 +1,46 @@
+.cinema-container {
+  display: grid;
+  grid-template-columns: repeat(15, 1fr); /* 10 cadeiras por fila */
+  gap: 2px;
+  margin: 2px;
+}
+
+
+
+.seat {
+  width: 30px;
+  height: 30px;
+  background-color: #444; /* Disponível */
+  border-radius: 5px 5px 0 0;
+  margin: 5px;
+  display: inline-block;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.seat.selected {
+  background-color: #6feaf6; /* Selecionado */
+}
+
+.seat.occupied {
+  background-color: #fff; /* Ocupado */
+  cursor: not-allowed;
+}
+
+.seat:not(.occupied):hover {
+  transform: scale(1.2);
+}
+
+.cinema-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.screen {
+  background-color: #fff;
+  height: 70px;
+  width: 100%;
+  transform: rotateX(-45deg);
+  box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
+}

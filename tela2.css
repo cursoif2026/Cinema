@@ -33,28 +33,53 @@
   justify-content: flex-end;
 }
 
-button {
+
+.sair{ 
+ display: flex;
+ justify-content: flex-end;
+  justify-items: center;
  background-image: url('./filmes/iconeSair.webp');
  background-size: cover; /* Ou 'contain' para mostrar a imagem inteira */
  background-position: center;
  background-repeat: no-repeat;
    
  /* Define o tamanho exato da sua imagem */
- width: 30px;
- height: 30px;
+ width: 50px;
+ height: 50px;
     
  /* Remove bordas padrão para limpar */
  border: none;
  cursor: pointer;
  float: right;
 }
-.sair{ 
-  display: flex;
-  justify-content: flex-end;
-  justify-items: center;
-}
 
 .container{
 gap: 5px;    
 padding: 5px;
 }
+
+/* MODAL TELA 3 */
+dialog {
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  width: 80%;
+  height: 80%;
+}
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5); /* Escurece o fundo */
+}
+#filme {
+   width: 5%;
+}
+
+.form-check{
+ border: solid 2px;  
+ background-color: aquamarine;
+ width: 15%;
+ gap:10px;
+ padding: 10px;
+}
+
+
