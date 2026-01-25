@@ -1,11 +1,28 @@
 
 const modal = document.getElementById('modalFilme');
+
+//refere-se a quantidade e total de ingressos meia entrada
+
+const totalMeia =document.getElementById('totalMeia');
+
+//refere-se a quantidade de ingressos meia entrada
+const qtdInteira= document.getElementById('qtdeInteira');
+const totalInteira =document.getElementById('totalInteira');
+
+//refere-se ao campo total Geral
+const totalGeral= document.getElementById('totalGeral');
+
 document.addEventListener("DOMContentLoaded",function() { 
   //captura o botão clicado para saber qual horário foi selecionado
   const horario = document.getElementById("horarios");
   const btnFechar = document.getElementById('btnFechar');
- 
 
+  const qtdMeia =document.getElementById('qtdMeia');
+  
+  qtdMeia.addEventListener("input", function(event) {
+    event.preventDefault();
+   alert("aqui")
+  })
   
   horario.addEventListener("click", function(event) {
     SelecionaFilme(); 
@@ -49,20 +66,25 @@ const imgCartaz = document.getElementById('filme');
 
 function exibirModal(hora,filme,cartaz) {
 
-  // 1. Preenche as informações no modal
+  // Preenche as informações no modal
     document.getElementById('tituloModal').innerText = filme;
     document.getElementById('horarioModal').innerText = `Horário: ${hora}`;
     
+
     imgCartaz.src = cartaz; 
     imgCartaz.alt = `Cartaz do filme ${filme}`;
-    // 2. Abre o modal de forma nativa
-   
+    
+    //  Abre o modal   
     modal.showModal();
-    btnFechar.onclick = () => modal.close();
+    //btnFechar.onclick = () => modal.close();
 }
 
 }
 
+function CalculaTotais () {
+  totalGeral=(totalInteira+totalMeia)
+  document.getElementById('tituloModal').innerText = totalGeral;
+}
 //// Recuperar um dado
 //const nome = sessionStorage.getItem('usuario');
 //

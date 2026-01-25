@@ -1,198 +1,119 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script type="text/javascript" src="tela2.js"> </script>
-<link rel="stylesheet" type="text/css" href="tela2.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="text/javascript" src="tela2.js"> </script>
+  <link rel="stylesheet" type="text/css" href="tela2.css" />
+  <link rel="stylesheet" type="text/css" href="tela3.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
     <!-- O Modal TELA 3 -->
 
   <dialog id="modalFilme">
-
-    <div class="theatre">
-  
-  <div class="cinema-seats left">
-    <div class="cinema-row row-1">
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-    </div>
-
-    <div class="cinema-row row-2">
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-    </div>
-
-    <div class="cinema-row row-3">
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-    </div>
-
-    <div class="cinema-row row-4">
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-    </div>
-
-    <div class="cinema-row row-5">
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-    </div>
-
-    <div class="cinema-row row-6">
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-    </div>
-
-    <div class="cinema-row row-7">
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-    </div>
-  </div>
-
-
-  <div class="cinema-seats right">
-    <div class="cinema-row row-1">
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-    </div>
-
-    <div class="cinema-row row-2">
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-    </div>
-
-    <div class="cinema-row row-3">
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-    </div>
-
-    <div class="cinema-row row-4">
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-    </div>
-
-    <div class="cinema-row row-5">
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-    </div>
-
-    <div class="cinema-row row-6">
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-    </div>
-
-    <div class="cinema-row row-7">
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-      <div class="seat"></div>
-    </div>
-  </div>
-  
-</div>
-    <div class="container mt-4">
+    
+    <div id="minhasCadeiras" class="container mt-4">
      <div class="input-group mb-3">  
-
-        <img id="filme">
-        <h2 id="tituloModal"></h2>
-        <p id="horarioModal"></p>
       
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-          <label class="form-check-label" for="flexCheckDefault">
-            Inteira R$ 20,00
-          </label>        
-          <label for="quantidade" class="form-label">Quantidade</label>
-          <input type="number" class="form-control" id="quantidade" name="quantidade" value="1" min="1" max="100">
-        </div>
-          
-        
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-          <label class="form-check-label" for="flexCheckChecked">
-            Meia entrada R$ 10,00
-          </label>        
-          <label for="quantidade" class="form-label">Quantidade</label>
-          <input type="number" class="form-control" id="quantidade" name="quantidade" value="1" min="1" max="100">
+        <div class="card" style="width: 18rem;">
+          <h5 class="card-title">Filme</h5>
+          <div id="meuFilme" class="card-body">          
+            <img id="filme">          
+            <h2 id="tituloModal"></h2>        
+            <p id="horarioModal"></p>       
+
+            <div class="valores" >
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault"> Inteira R$ 20,00 </label>                       
+                <p class="card-text" >Quantidade: </p>
+                <input id="qtdeInteira" type="number" class="form-control" id="quantidade" name="quantidade" value="1" min="1" max="100" >
+                <p class="card-text"> R$ Total: <span class="badge bg-primary"></span></p>
+                <p id="totalInteira"></p>
+            </div>    
+
+            <div class="valores" >
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault"> Meia Entrada R$ 10,00 </label>                       
+                <p class="card-text" >Quantidade: </p>
+                <input id="qtdMeia" type="number" class="form-control"  name="quantidade" value="1" min="1" max="100" >
+                <p class="card-text"> R$ Total: <span class="badge bg-primary"></span></p>
+                <p id="totalMeia"></p>
+            </div>    
+            
+            <div class="valores" >                                
+               <p class="card-text"> R$ TotalGeral: <span class="badge bg-primary"></span></p>
+                <p id="totalGeral"></p>
+            </div>    
+
+          </div>
+        </div>               
+
+        <div id="grupoCadeiras" class="container mt-5">
+        <!-- Tela do Cinema -->
+        <div class="screen bg-dark text-white text-center py-2 mb-5 rounded">TELA</div>
+
+        <!-- Layout de Assentos -->
+        <div  class="cinema-seating">
+            <!-- Linha de Assentos (Exemplo com 8 assentos) -->
+            <div class="seat-row d-flex justify-content-center">
+                <div class="seat available"></div>
+                <div class="seat available"></div>
+                <div class="seat gap"></div> <!-- Espaço entre blocos -->
+                <div class="seat occupied"></div>
+                <div class="seat occupied"></div>
+                <div class="seat gap"></div>
+                <div class="seat available"></div>
+                <div class="seat available"></div>
+            </div>         
+
+            <div class="seat-row d-flex justify-content-center">
+                <div class="seat available"></div>
+                <div class="seat available"></div>
+                <div class="seat gap"></div> <!-- Espaço entre blocos -->
+                <div class="seat occupied"></div>
+                <div class="seat occupied"></div>
+                <div class="seat gap"></div>
+                <div class="seat available"></div>
+                <div class="seat available"></div>
+            </div>
+
+            <div class="seat-row d-flex justify-content-center">
+                <div class="seat available"></div>
+                <div class="seat available"></div>
+                <div class="seat gap"></div> <!-- Espaço entre blocos -->
+                <div class="seat occupied"></div>
+                <div class="seat occupied"></div>
+                <div class="seat gap"></div>
+                <div class="seat available"></div>
+                <div class="seat available"></div>
+            </div>
+            
+            <div class="seat-row d-flex justify-content-center">
+                <div class="seat available"></div>
+                <div class="seat available"></div>
+                <div class="seat gap"></div> <!-- Espaço entre blocos -->
+                <div class="seat occupied"></div>
+                <div class="seat occupied"></div>
+                <div class="seat gap"></div>
+                <div class="seat available"></div>
+                <div class="seat available"></div>
+            </div>
+            
+            <div class="seat-row d-flex justify-content-center">
+                <div class="seat available"></div>
+                <div class="seat available"></div>
+                <div class="seat gap"></div> <!-- Espaço entre blocos -->
+                <div class="seat occupied"></div>
+                <div class="seat occupied"></div>
+                <div class="seat gap"></div>
+                <div class="seat available"></div>
+                <div class="seat available"></div>
+            </div>
         </div>
 
-        <div class="form-check">
-          <label class="form-label">Total</label>
-          <div class="input-group">
-             <span class="input-group-text">R$</span>
-              <!-- Campo readonly para exibir o resultado -->
-             <input type="text" id="total" class="form-control" placeholder="0.00" readonly>
-          </div>
-        </div>
-        <button id="btnFechar">Fechar</button>
+      </div>      
+
      </div> 
     </div>
     

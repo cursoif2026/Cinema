@@ -1,46 +1,80 @@
-.cinema-container {
-  display: grid;
-  grid-template-columns: repeat(15, 1fr); /* 10 cadeiras por fila */
-  gap: 2px;
-  margin: 2px;
+
+
+.sair{ 
+ display: flex;
+ justify-content: flex-end;
+  justify-items: center;
+ 
+ background-size: cover; /* Ou 'contain' para mostrar a imagem inteira */
+ background-position: center;
+ background-repeat: no-repeat;
+   
+ /* Define o tamanho exato da sua imagem */
+ width: 50px;
+ height: 50px;
+    
+ /* Remove bordas padrão para limpar */
+ border: none;
+ cursor: pointer;
+ float: right;
 }
 
 
 
+/* Tamanho da tela */
+.screen {
+    width: 80%;
+    margin: 0 auto;
+    box-shadow: 0 10px 10px rgba(255, 255, 255, 0.2);
+    transform: rotateX(-15deg); /* Efeito 3D */
+}
+
+/* Base do Assento */
 .seat {
-  width: 30px;
-  height: 30px;
-  background-color: #444; /* Disponível */
-  border-radius: 5px 5px 0 0;
-  margin: 5px;
-  display: inline-block;
-  cursor: pointer;
-  transition: 0.3s;
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    background-color: #444; /* Disponível */
+    border-radius: 5px 5px 0 0;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+/* Estados do Assento */
+.seat.available:hover {
+    background-color: #28a745;
+    transform: scale(1.1);
 }
 
 .seat.selected {
-  background-color: #6feaf6; /* Selecionado */
+    background-color: #ffc107;
 }
 
 .seat.occupied {
-  background-color: #fff; /* Ocupado */
-  cursor: not-allowed;
+    background-color: #6c757d;
+    cursor: not-allowed;
 }
 
-.seat:not(.occupied):hover {
-  transform: scale(1.2);
+/* Espaçamento */
+.seat.gap {
+    background-color: transparent;
+    cursor: default;
 }
 
-.cinema-row {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 10px;
+/* Curvatura (opcional - aplica rotação suave nas fileiras) */
+.seat-row:nth-child(1) .seat { transform: translateY(10px); }
+.seat-row:nth-child(2) .seat { transform: translateY(5px); }
+.seat-row:nth-child(4) .seat { transform: translateY(5px); }
+.seat-row:nth-child(5) .seat { transform: translateY(10px); }
+
+#qtde{
+  width: 40%;
 }
 
-.screen {
-  background-color: #fff;
-  height: 70px;
-  width: 100%;
-  transform: rotateX(-45deg);
-  box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
+.valores{
+  border:solid 2px;
+}
+
+#minhasCadeiras{
+  flex: 1;
 }

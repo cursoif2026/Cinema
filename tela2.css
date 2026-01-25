@@ -56,10 +56,12 @@
 .container{
 gap: 5px;    
 padding: 5px;
+
 }
 
 /* MODAL TELA 3 */
 dialog {
+  display: flex;
   padding: 20px;
   border-radius: 8px;
   border: 1px solid #ccc;
@@ -67,6 +69,7 @@ dialog {
   width: 80%;
   height: 80%;
 }
+
 dialog::backdrop {
   background-color: rgba(0, 0, 0, 0.5); /* Escurece o fundo */
 }
@@ -74,12 +77,16 @@ dialog::backdrop {
    width: 5%;
 }
 
-.form-check{
- border: solid 2px;  
- background-color: aquamarine;
- width: 15%;
- gap:10px;
- padding: 10px;
+#modalFilme{
+  display: none;
+}
+#modalFilme[open] {
+  display: flex;
+  width: 90%;
+  height: auto;
 }
 
-
+#grupoCadeiras{
+  flex: 1;
+  border:solid 2px;
+}
