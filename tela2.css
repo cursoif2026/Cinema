@@ -37,7 +37,7 @@
 .sair{ 
  display: flex;
  justify-content: flex-end;
-  justify-items: center;
+ justify-items: center;
  background-image: url('./filmes/iconeSair.webp');
  background-size: cover; /* Ou 'contain' para mostrar a imagem inteira */
  background-position: center;
@@ -59,34 +59,3 @@ padding: 5px;
 
 }
 
-/* MODAL TELA 3 */
-dialog {
-  display: flex;
-  padding: 20px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  width: 80%;
-  height: 80%;
-}
-
-dialog::backdrop {
-  background-color: rgba(0, 0, 0, 0.5); /* Escurece o fundo */
-}
-#filme {
-   width: 5%;
-}
-
-#modalFilme{
-  display: none;
-}
-#modalFilme[open] {
-  display: flex;
-  width: 90%;
-  height: auto;
-}
-
-#grupoCadeiras{
-  flex: 1;
-  border:solid 2px;
-}

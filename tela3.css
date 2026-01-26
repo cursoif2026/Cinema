@@ -1,9 +1,7 @@
-
-
 .sair{ 
  display: flex;
  justify-content: flex-end;
-  justify-items: center;
+ justify-items: center;
  
  background-size: cover; /* Ou 'contain' para mostrar a imagem inteira */
  background-position: center;
@@ -19,7 +17,16 @@
  float: right;
 }
 
-
+/* Detalhes do filme, valores e horarios*/
+.detalhes{
+  display: flex;        
+  gap: 10px;           
+  flex-wrap: wrap;
+  border-radius: 2rem;
+  border: solid 2px;
+  width: 100%;
+  padding: 10px;
+}
 
 /* Tamanho da tela */
 .screen {
@@ -70,11 +77,28 @@
 #qtde{
   width: 40%;
 }
-
-.valores{
-  border:solid 2px;
+.separa{
+  
+  gap:10px;
+  height: 15px;
+}
+.form{
+  align-content: center;
+  gap:30px;
+  padding: 5px;
+  width: 20%;
+  align-items:  center;
+  background-color: #ebeff3;
+  margin: 10px;
 }
 
+#qtdeInteira, #qtdMeia{
+  width: 70px;
+}
 #minhasCadeiras{
   flex: 1;
+}
+
+#filme {
+   width: 15%;
 }

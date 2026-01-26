@@ -1,32 +1,81 @@
+const modal = document.getElementById('modalFilme');
+
+//refere-se a quantidade e total de ingressos meia entrada
+
+const totalMeia =document.getElementById('totalMeia');
+
+//refere-se a quantidade de ingressos meia entrada
+const qtdInteira= document.getElementById('qtdeInteira');
+const totalInteira =document.getElementById('totalInteira');
+
+//refere-se ao campo total Geral
+const totalGeral= document.getElementById('totalGeral');
+
 document.addEventListener("DOMContentLoaded",function() { 
+  //captura o botão clicado para saber qual horário foi selecionado
+  const horario = document.getElementById("horarios");
+  const btnFechar = document.getElementById('btnFechar');
 
-//captura o botão clicado para saber qual horário foi selecionado
-const horario = document.getElementById("horarios");
-horario.addEventListener("click", function(event) {
- const hora = (event.target)
- console.log(hora);
- const filme=""
- 
- //primeiro horário
-if (hora === "hora1f1" | hora === "hora2f1" | hora === "hora3f1" | hora === "hora4f1")  {
-    filme="Avatar";
-    
-    } else if (hora === "hora1f2" | hora === "hora2f2" | hora === "hora3f2" | hora === "hora4f2") { 
-    filme="Avatar1";
-    }else if (hora === "hora1f3" | hora === "hora2f3" | hora === "hora3f3" | hora === "hora4f3") {
-    filme="Anaconda";
-    } else if (hora === "hora1f4" | hora === "hora2f4" | hora === "hora3f4" | hora === "hora4f4") {
-    filme="BrancadeNeve";
-    } else if (hora === "hora1f5" | hora === "hora2f5" | hora === "hora3f5" | hora === "hora4f5") { 
-   filme="Zootopia";
-}
-  salvaFilme(hora,filme);
- 
-})
-
-})
-
-function salvaFilme (horario,nFilme){
+  const qtdMeia =document.getElementById('qtdMeia');
   
-  sessionStorage.setItem(horario, nFilme);
+  qtdMeia.addEventListener("input", function(event) {
+    event.preventDefault();
+   alert("aqui")
+  })
+  
+  horario.addEventListener("click", function(event) {
+    SelecionaFilme(); 
+  })
+})
+
+
+function SelecionaFilme () {
+  // Seleciona todas as divs que você quer monitorar
+const divs = document.querySelectorAll('.card');
+
+divs.forEach(div => {
+    div.addEventListener('click', function(event) {          
+
+       const elementoClicado = event.target;        
+        // Captura o ID (se tiver)
+       const idDaDiv = elementoClicado.id; 
+
+       const filme1 = [
+        {id:'hora1f1', hora:'10:00', filme:'Avatar',cartaz:"./filmes/filme1.jpeg"}, 
+        {id:'hora2f1', hora:'14:00', filme:'Avatar',cartaz:"./filmes/filme1.jpeg"},
+        {id:'hora3f1', hora:'16:00', filme:'Avatar',cartaz:"./filmes/filme1.jpeg"},
+        {id:'hora4f1', hora:'22:00', filme:'Avatar',cartaz:"./filmes/filme1.jpeg"}
+       ];
+
+      const busca = filme1.find(u => u.id === idDaDiv);
+
+      if (busca) {
+          salvaFilme(busca.hora, busca.filme,busca.cartaz);}       
+      });
+
+});
+function salvaFilme (horario,nFilme,cartaz){  
+  sessionStorage.setItem(horario, nFilme,cartaz);
+  console.log(nFilme);
+  exibirModal(horario,nFilme,cartaz);
+}
+
+const modal = document.getElementById('modalFilme');
+const imgCartaz = document.getElementById('filme');
+
+function exibirModal(hora,filme,cartaz) {
+
+  // Preenche as informações no modal
+    document.getElementById('tituloModal').innerText = filme;
+    document.getElementById('horarioModal').innerText = `Horário: ${hora}`;
+    
+
+    imgCartaz.src = cartaz; 
+    imgCartaz.alt = `Cartaz do filme ${filme}`;
+    
+    //  Abre o modal   
+    modal.showModal();
+    //btnFechar.onclick = () => modal.close();
+}
+
 }
