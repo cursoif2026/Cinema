@@ -36,44 +36,6 @@
     transform: rotateX(-15deg); /* Efeito 3D */
 }
 
-/* Base do Assento */
-.seat {
-    width: 30px;
-    height: 30px;
-    margin: 5px;
-    background-color: #444; /* Disponível */
-    border-radius: 5px 5px 0 0;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-/* Estados do Assento */
-.seat.available:hover {
-    background-color: #28a745;
-    transform: scale(1.1);
-}
-
-.seat.selected {
-    background-color: #6feaf6
-}
-
-.seat.occupied {
-    background-color: #6c757d;
-    cursor: not-allowed;
-}
-
-/* Espaçamento */
-.seat.gap {
-    background-color: transparent;
-    cursor: default;
-}
-
-/* Curvatura (opcional - aplica rotação suave nas fileiras) */
-.seat-row:nth-child(1) .seat { transform: translateY(10px); }
-.seat-row:nth-child(2) .seat { transform: translateY(5px); }
-.seat-row:nth-child(4) .seat { transform: translateY(5px); }
-.seat-row:nth-child(5) .seat { transform: translateY(10px); }
-
 
 .separa{
   
@@ -145,7 +107,7 @@
 /* Efeito ao passar o mouse */
 .assento:hover {
     transform: scale(1.1);
-    background-color: #61616e;
+    background-color: #40e269;
 }
 
 /* ESTADO: Assento Selecionado */
@@ -157,6 +119,9 @@
 
 /* ESTADO: Assento já ocupado (opcional) */
 .assento.ocupado {
-    background-color: #7c1919;
+
+     background-color: #ca3d1a; /* Vermelho brilhante */
+    box-shadow: 0 0 10px #ca3d1a;
+    background-color:  #ca3d1a;
     cursor: not-allowed;
 }
