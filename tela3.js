@@ -1,41 +1,58 @@
-const totalInteira =document.getElementById('totalInteira');
 
-//refere-se ao campo total Geral
-const totalGeral= document.getElementById('totalGeral');
 
 document.addEventListener("DOMContentLoaded", function() { 
   const horario = document.getElementById("horarios");
   const btnFechar = document.getElementById('btnFechar');
-  const inputMeia = document.getElementById('qtdMeia'); // Referência correta ao campo
-  const inputInteira = document.getElementById('qtdeInteira'); // Referência correta ao campo
+  const inputMeia = document.getElementById('qtdMeia'); 
+  const inputInteira = document.getElementById('qtdeInteira'); 
 
-  //CALCULA OS INGRESSOS VALOR MEIO
-  inputMeia.addEventListener("input", function(event) {   
-    let quantidade = Number(inputMeia.value);     
-    let totalMetade = quantidade * 10;         
-    document.getElementById('totalMeia').innerHTML = `R$ ${totalMetade.toFixed(2)}`;
-    CalculatotalGeral();
-  });
   
-  //CALCULA OS INGRESSOS VALOR INTEIRO
-  inputInteira.addEventListener("input", function(event) {       
-    let quantidade = Number(inputInteira.value);     
-    let totalinteiro = quantidade * 20;         
-    document.getElementById('totalInteira').innerHTML = `R$ ${totalinteiro.toFixed(2)}`;    
-    CalculatotalGeral();
-  });
 
-  horario.addEventListener("click", function(event) {
-    SelecionaFilme(); 
-  });
+  //horario.addEventListener("click", function(event) {
+  //  SelecionaFilme(); 
+  //});
 
   
 });
 
-function CalculatotalGeral() { 
-  const vlMeia = parseFloat(document.getElementById("totalMeia").innerText.replace("R$ ", "")) || 0;
-  const vlInteira = parseFloat(document.getElementById("totalInteira").innerText.replace("R$ ", "")) || 0;  
-  const somaTotal = vlMeia + vlInteira;  
-  document.getElementById('totalGeral').innerHTML = `R$ ${somaTotal.toFixed(2)}`;
+
+
+function criarCadeiras() {
+    const container = document.getElementById("minhasCadeiras");
+    // Recupera os dados da sessão
+    const salvos = JSON.parse(sessionStorage.getItem("assentosTemporarios")) || [];
+
+    for (let i = 0; i < 5; i++) {
+        const linha = document.createElement("div");
+        linha.className = "linha";
+
+        for (let y = 0; y < 5; y++) {
+            const cadeira = document.createElement("div");
+            const idAssento = `${i + 1}-${y + 1}`;
+            cadeira.className = "assento";
+            cadeira.textContent = idAssento;
+
+            if (salvos.includes(idAssento)) {
+                cadeira.classList.add("selecionado");
+            }
+
+            cadeira.onclick = () => {
+                cadeira.classList.toggle("selecionado");
+               
+            };
+
+            linha.appendChild(cadeira);
+        }
+        container.appendChild(linha);
+    }    
+
 }
 
+function atualizarSessao() {
+  const selecionados = [...document.querySelectorAll(".assento.selecionado")]
+                       .map(assento => assento.textContent);  
+  // Salva na sessão atual (limpa ao fechar a aba)
+  sessionStorage.setItem("assentosTemporarios", JSON.stringify(selecionados));
+}
+// Chamar a função após o carregamento da página
+document.addEventListener("DOMContentLoaded", criarCadeiras);

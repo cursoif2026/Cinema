@@ -54,7 +54,7 @@
 }
 
 .seat.selected {
-    background-color: #ffc107;
+    background-color: #6feaf6
 }
 
 .seat.occupied {
@@ -74,9 +74,7 @@
 .seat-row:nth-child(4) .seat { transform: translateY(5px); }
 .seat-row:nth-child(5) .seat { transform: translateY(10px); }
 
-#qtde{
-  width: 40%;
-}
+
 .separa{
   
   gap:10px;
@@ -84,21 +82,81 @@
 }
 .form{
   align-content: center;
-  gap:30px;
+  gap:10px;
   padding: 5px;
-  width: 20%;
+  width: 25%;
+  height: 50px;
   align-items:  center;
   background-color: #ebeff3;
-  margin: 10px;
+  margin: 5px;
 }
 
 #qtdeInteira, #qtdMeia{
   width: 70px;
 }
-#minhasCadeiras{
-  flex: 1;
-}
+
 
 #filme {
    width: 15%;
+}
+
+.cinema{
+ display: grid;   
+ grid-template-columns: repeat(5,10px);
+ gap:10px;
+ padding: 10px;
+}
+
+
+
+/* Container que centraliza tudo */
+#minhasCadeiras {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    background-color: #1a1a1a; /* Fundo escuro estilo cinema */
+    border-radius: 8px;
+}
+
+/* Estilo de cada linha */
+.linha {
+    display: flex;
+    gap: 10px;
+}
+
+/* Estilo base da cadeira (assento) */
+.assento {
+    width: 40px;
+    height: 40px;
+    background-color: #444451;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 10px;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+/* Efeito ao passar o mouse */
+.assento:hover {
+    transform: scale(1.1);
+    background-color: #61616e;
+}
+
+/* ESTADO: Assento Selecionado */
+.assento.selecionado {
+    background-color: #6feaf6; /* Azul brilhante */
+    box-shadow: 0 0 10px #6feaf6;
+    color: #000;
+}
+
+/* ESTADO: Assento já ocupado (opcional) */
+.assento.ocupado {
+    background-color: #7c1919;
+    cursor: not-allowed;
 }
