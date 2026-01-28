@@ -1,3 +1,30 @@
+function mostrarDadosFilme(){
+  //seleciona os dados do filme da tela2
+
+
+  //sessionStorage.setItem("horario:", horario);
+  //sessionStorage.setItem( "filme", nFilme);
+  //sessionStorage.setItem("endereco", cartaz); 
+
+  const sessao = sessionStorage.getItem('sessao');
+  const qualFilme=sessionStorage.getItem('filme');
+  const cartaz=sessionStorage.getItem('endereco'); 
+
+  console.log(cartaz);
+
+  document.getElementById('filmeSelecionado').innerHTML = qualFilme;
+  document.getElementById('sessao').innerHTML = sessao;
+  // Exibe a IMAGEM
+  const imgElemento = document.getElementById('imagemFilme');
+  if (cartaz && imgElemento) {
+      
+      imgElemento.src = cartaz; // Define o caminho da imagem no src
+  }
+}
+
+
+
+
 function criarCadeiras() {
     const container = document.getElementById("minhasCadeiras");
     // Recupera os dados da sessão
@@ -34,9 +61,15 @@ function atualizarSessao() {
 document.addEventListener("DOMContentLoaded", () => {
     const horario = document.getElementById("horarios");
     const btnFechar = document.getElementById('btnFechar');
- 
+   
     criarCadeiras();
-
+    
+    //if (dadosFilme) {
+    //    console.log(JSON.parse(dadosFilme));
+    //} else {
+    //    console.log("Dado não encontrado.");
+    //}
+ 
 
     // 1. Recuperar e converter os dados (assumindo que salvou um array de índices)
     const dadosSalvos = sessionStorage.getItem('horario');
@@ -69,8 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const selecionados = document.querySelectorAll('.assento.selecionado').length - 1;        
         if (contador) contador.innerText = (selecionados);
      
-        if (total) total.innerText = (selecionados * tipoIngresso).toFixed(2);
-       
+        if (total) total.innerText = (selecionados * tipoIngresso).toFixed(2);       
         
     }
 
@@ -87,5 +119,5 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    
+ mostrarDadosFilme();    
 });

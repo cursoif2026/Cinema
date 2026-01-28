@@ -27,12 +27,12 @@
     <div class="container mt-5">
            <div class="detalhes">
               <div class="card" style="width: 18rem;">
-                  <h5 class="card-title">Filme</h5>
+                  <h5 id="filmeSelecionado" class="card-title"></h5>
                   <div id="meuFilme" class="card-body">     
-                    <div class="container mt-4">     
-                        <img id="filme">          
+                    <div class="container mt-4">                                   
+                        <img id="imagemFilme" src="" alt="Poster do Filme" style="width:150px;">
                         <h2 id="tituloModal"></h2>        
-                        <p id="horarioModal"></p>       
+                        <p id="sessao"></p>       
                     </div>                                           
                   </div>
               </div>                         
@@ -59,9 +59,7 @@
                  <label class="card-text"> R$ Total: <span class="badge bg-primary"></span></label>
                  <label id="totalGeral"></label>
               </div>                                  
-           </div>
-
-           
+           </div>           
 
            <div class="separa"></div>
           <!-- Tela do Cinema -->
@@ -80,6 +78,6 @@
          </div> 
         </div>
     </div>
-      <script type="text/javascript" src="tela3.js"> </script>
+    <script type="text/javascript" src="tela3.js"> </script>
 </body>
 </html>

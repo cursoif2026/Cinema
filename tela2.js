@@ -33,7 +33,11 @@ function SelecionaFilme () {
 
 //salva na sessionionStorage
 function salvaFilme (horario,nFilme,cartaz){  
-  sessionStorage.setItem(horario, nFilme,cartaz);
+  
+  sessionStorage.setItem("sessao", horario);
+  sessionStorage.setItem( "filme", nFilme);
+  sessionStorage.setItem("endereco", cartaz);
+
   irParaPagina3();
   console.log(nFilme);
   //exibirModal(horario,nFilme,cartaz);
