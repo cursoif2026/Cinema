@@ -19,24 +19,27 @@
     
     <p class="text-center text-uppercase fw-bold text-primary" style = "padding-top: 10px;">Cinema on line</p>
     <div class="sair">   
-       <button type="button" class="btn-close" aria-label="Close"></button>
+       <button id="btnFechar" type="button" class="btn-close" aria-label="Close"></button>
     </div>  
     
   </nav>   
 
     <div class="container mt-5">
-           <div class="detalhes">
-              <div class="card" style="width: 18rem;">
-                  <h5 id="filmeSelecionado" class="card-title"></h5>
-                  <div id="meuFilme" class="card-body">     
-                    <div class="container mt-4">                                   
-                        <img id="imagemFilme" src="" alt="Poster do Filme" style="width:150px;">
-                        <h2 id="tituloModal"></h2>        
-                        <p id="sessao"></p>       
-                    </div>                                           
-                  </div>
-              </div>                         
 
+        <div class="organizacao">
+      
+          <div class="card" style="width: 18rem;">
+              <h5 id="filmeSelecionado" class="card-title"></h5>
+              <div id="meuFilme" class="card-body">     
+                <div class="container mt-4">                                   
+                    <img id="imagemFilme" src="" alt="Poster do Filme" style="width:150px;">
+                    <h2 id="tituloModal"></h2>        
+                    <p id="sessao"></p>       
+                </div>                                           
+              </div>
+           </div>                         
+
+           <div class="detalhes">              
               <div class="form" >
                   <input id="meia" name="tipoEntrada" class="form-check-input" type="radio" value="10.00">
                   <label class="form-check-label" for="flexCheckDefault"> Meia Entrada R$ 10,00 </label>                                                          
@@ -46,38 +49,38 @@
               <div class="form" >
                 <input id="inteira" name="tipoEntrada" class="form-check-input" type="radio" value="20.00" checked>
                 <label class="form-check-label" for="flexCheckDefault" > Inteira R$ 20,00 </label>                                                       
-              </div>    
-
-              
+              </div>                  
+            
+              <div class="form" >                                
+                 <label class="card-text"> R$ Total: <span class="badge bg-primary"></span></label>
+                 <label id="totalGeral"></label>
+              </div>                                  
               <div class="legenda">
                 <span style="display: inline-block;"><div  class="assento" style="float:left;"> </div>Disponível </span >
                 <span style="display: inline-block;"><div class="assento ocupado" style="float:left;"></div>Ocupado</span>
                 <span style="display: inline-block;"><div class="assento selecionado"style="float:left;" ></div>Selecionado</span>
-            </div>
+              </div>     
+            </div>      
             
-            <div class="form" >                                
-                 <label class="card-text"> R$ Total: <span class="badge bg-primary"></span></label>
-                 <label id="totalGeral"></label>
-              </div>                                  
-           </div>           
-
-           <div class="separa"></div>
+        </div>
+          <button id="comprar">Comprar</button>
+          
+          <div class="separa"></div>
           <!-- Tela do Cinema -->
           <div class="screen bg-dark text-white text-center py-2 mb-5 rounded">TELA</div>
           <div id="minhasCadeiras" class="container mt-4">
             <div class="input-group mb-3">            
                <div id="grupoCadeiras" class="container mt-5">            
-               <!-- Layout de Assentos -->
-               <div id ="minhasCadeiras" class="minhasCadeiras">
-                 <div id="linha">  
-                   <div id="coluna">
-                   </div>
-                 </div>   
-              </div>
-            </div>  
-         </div> 
-        </div>
+                  <!-- Layout de Assentos -->
+                  <div id ="minhasCadeiras" class="minhasCadeiras">
+                    <div id="linha">  
+                      <div id="coluna"></div>
+                    </div>   
+                  </div>
+               </div>  
+            </div> 
+          </div>
     </div>
-    <script type="text/javascript" src="tela3.js"> </script>
+    <script src="tela3.js" defer></script>
 </body>
 </html>

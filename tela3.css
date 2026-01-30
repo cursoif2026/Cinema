@@ -88,6 +88,11 @@
     gap: 10px;
 }
 
+.organizacao{
+  display: flex;
+  border: solid 3px;
+}
+
 /* Estilo base da cadeira (assento) */
 .assento {
     width: 40px;
@@ -119,8 +124,7 @@
 
 /* ESTADO: Assento já ocupado (opcional) */
 .assento.ocupado {
-
-     background-color: #ca3d1a; /* Vermelho brilhante */
+    background-color: #ca3d1a; /* Vermelho brilhante */
     box-shadow: 0 0 10px #ca3d1a;
     background-color:  #ca3d1a;
     cursor: not-allowed;
