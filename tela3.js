@@ -2,12 +2,17 @@ const sessao = sessionStorage.getItem('sessao');
 const qualFilme=sessionStorage.getItem('filme');
 const cartaz=sessionStorage.getItem('endereco'); 
 const idFilme=sessionStorage.getItem('id'); 
+const categoria=sessionStorage.getItem('categoria');
+
 
 const selecaoCadeiras= []
 
 function mostrarDadosFilme(){
-  //seleciona os dados do filme da tela2  
+
+  //seleciona os dados do filme da tela2  e imprime na tela 3
   document.getElementById('filmeSelecionado').innerHTML = qualFilme;
+  document.getElementById('categoria').innerHTML = categoria;
+  
   document.getElementById('sessao').innerHTML = sessao;
   
   // Exibe a IMAGEM  
@@ -79,11 +84,9 @@ function atualizarSessao() {
 // Chamar a função após o carregamento da página
 document.addEventListener("DOMContentLoaded", () => {
     
-    const btnFechar = document.getElementById('btnFechar');           
-    const cadeirasOcupadas = sessionStorage.getItem('sessao');    
+    const btnFechar = document.getElementById('btnFechar');                 
     const container = document.getElementById('minhasCadeiras'); 
-    const contador = document.getElementById('contador');
-    const total = document.getElementById('totalGeral');
+    
    
     btnFechar.addEventListener("click", () => {
       window.location.href = "./tela2.html";
@@ -136,8 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
             selecaoCadeiras = selecaoCadeiras.filter(id => id !== cadeiraId);
         }
 
-        // Chamamos a função de atualização sem passar o preço fixo, 
-        // pois ela vai varrer os assentos agora
+        // Chamamos a função de atualização sem passar o preço fi
         atualizarSelecao();
 
         sessionStorage.setItem('assentosSelecionados', JSON.stringify(selecaoCadeiras));

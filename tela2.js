@@ -1,11 +1,11 @@
 
 const listaFilmes = [
-    {id: 'avatar', nFilme: 'Avatar', cartaz: './filmes/filme1.jpeg'},
-    {id: 'mufasa', nFilme: 'Mufasa', cartaz: './filmes/filme2.jpg'},
-    {id: 'anaconda', nFilme: 'Anaconda', cartaz: './filmes/filme3.jpg'},
-    {id: 'velozes', nFilme: 'Velozes e Furiosos', cartaz: './filmes/filme4.jpg'},
-    {id: 'zootopia', nFilme: 'Zootopia 2', cartaz: './filmes/filme5.jpg'},
-    {id: 'branca', nFilme: 'Branca de Neve', cartaz: './filmes/filme6.jpg'}
+    {id: 'avatar', nFilme: 'Avatar', cartaz: './filmes/filme1.jpeg',categoria:'Ficção'},
+    {id: 'mufasa', nFilme: 'Mufasa', cartaz: './filmes/filme2.jpg',categoria:'Animação'},
+    {id: 'anaconda', nFilme: 'Anaconda', cartaz: './filmes/filme3.jpg', categoria:'Ficção'},
+    {id: 'velozes', nFilme: 'Velozes e Furiosos', cartaz: './filmes/filme4.jpg',categoria:'Açao'},
+    {id: 'zootopia', nFilme: 'Zootopia 2', cartaz: './filmes/filme5.jpg', categoria:'Animação'},
+    {id: 'branca', nFilme: 'Branca de Neve', cartaz: './filmes/filme6.jpg',categoria:'Animação'}
 ];
 
 function inicializaSelecao() {
@@ -21,7 +21,7 @@ function inicializaSelecao() {
             const busca = listaFilmes.find(f => f.id === filmeId);
             
             if (busca) {               
-                salvaFilme(horaSelecionada, busca.nFilme, busca.cartaz, busca.id);               
+                salvaFilme(horaSelecionada, busca.nFilme, busca.cartaz, busca.id, busca.categoria);               
             } else {
                 console.error("Filme não encontrado:", filmeId);
             }
@@ -33,13 +33,13 @@ function inicializaSelecao() {
     });
 }
 
-function salvaFilme(horario, nFilme, cartaz, id) {  
+function salvaFilme(horario, nFilme, cartaz, id,categoria) {  
     try {
         sessionStorage.setItem("sessao", horario);
         sessionStorage.setItem("filme", nFilme);
         sessionStorage.setItem("endereco", cartaz);
         sessionStorage.setItem("id", id);
-        
+        sessionStorage.setItem("categoria", categoria);
         irParaPagina3();
     } catch (e) {
         console.error("Erro ao salvar sessão:", e);

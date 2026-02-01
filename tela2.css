@@ -1,3 +1,11 @@
+body {
+    font-family: Arial, sans-serif;
+     background: linear-gradient(135deg, #c5c4ce, #6d1015);
+    min-height: 100vh;
+    margin: 0;
+    padding: 30px;
+    color: #fff;
+}    
 .grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); /* Ajustado para bater com a largura do card */
