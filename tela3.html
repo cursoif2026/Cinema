@@ -4,11 +4,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" type="text/css" href="tela3.css" />
-  
+  <link href="https://cdn.jsdelivr.net" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-  
-
-  
+    
 </head>
 <body>
   
@@ -39,36 +37,53 @@
               </div>
            </div>                         
 
-           <div class="detalhes">              
-              <div class="form" >
+           <div class="detalhes d-flex flex-wrap align-items-center justify-content-between p-3 border rounded-4 bg-light shadow-sm">
+  
+              <!-- Opções de Entrada -->
+              <div class="d-flex gap-3">
+                <div class="form-check">
                   <input id="meia" name="tipoEntrada" class="form-check-input" type="radio" value="10.00">
-                  <label class="form-check-label" for="flexCheckDefault"> Meia Entrada R$ 10,00 </label>                                                          
-                  <label id="totalMeia"></label>
-              </div>                  
+                  <label class="form-check-label fw-bold" for="meia">Meia R$ 10,00</label>
+                </div>
 
-              <div class="form" >
-                <input id="inteira" name="tipoEntrada" class="form-check-input" type="radio" value="20.00" checked>
-                <label class="form-check-label" for="flexCheckDefault" > Inteira R$ 20,00 </label>                                                       
-              </div>                  
-            
-              <div class="form" >                                
-                 <label class="card-text"> R$ Total: <span class="badge bg-primary"></span></label>
-                 <label id="totalGeral"></label>
-              </div>                                  
-              <div class="legenda">
-                <span style="display: inline-block;"><div  class="assento" style="float:left;"> </div>Disponível </span >
-                <span style="display: inline-block;"><div class="assento ocupado" style="float:left;"></div>Ocupado</span>
-                <span style="display: inline-block;"><div class="assento selecionado"style="float:left;" ></div>Selecionado</span>
-              </div>     
-            </div>      
-            
-        </div>
-          <button id="comprar">Comprar</button>
+                <div class="form-check">
+                  <input id="inteira" name="tipoEntrada" class="form-check-input" type="radio" value="20.00" checked>
+                  <label class="form-check-label fw-bold" for="inteira">Inteira R$ 20,00</label>
+                </div>
+              </div>
+
+              <!-- Totalizador -->
+              <div class="total-container text-end">
+                <span class="fs-5 fw-bold">Total: </span>
+                <span id="totalGeral" class="badge bg-primary fs-5">R$ 0,00</span>
+              </div>
+
+              <!-- Legenda compacta -->
+              <div class="legenda d-flex gap-3 border-start ps-3">
+                <div class="d-flex align-items-center gap-1">
+                  <div class="assento" style="width: 15px; height: 15px; cursor: default;"></div>
+                  <small>Livre</small>
+                </div>
+                <div class="d-flex align-items-center gap-1">
+                  <div class="assento ocupado" style="width: 15px; height: 15px;"></div>
+                  <small>Ocupado</small>
+                </div>
+                <div class="d-flex align-items-center gap-1">
+                  <div class="assento selecionado" style="width: 15px; height: 15px;"></div>
+                  <small>Sua vez</small>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+
+         <button id="comprar" class="btn btn-success w-100 fw-bold mt-3 shadow">FINALIZAR RESERVA</button>
           
           <div class="separa"></div>
           <!-- Tela do Cinema -->
           <div class="screen bg-dark text-white text-center py-2 mb-5 rounded">TELA</div>
-          <div id="minhasCadeiras" class="container mt-4">
+          <div class="container mt-4">
             <div class="input-group mb-3">            
                <div id="grupoCadeiras" class="container mt-5">            
                   <!-- Layout de Assentos -->

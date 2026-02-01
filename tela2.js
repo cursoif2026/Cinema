@@ -1,88 +1,54 @@
 
-document.addEventListener("DOMContentLoaded", function() {    
-  const  horario = document.getElementById("horarios");  
+const listaFilmes = [
+    {id: 'avatar', nFilme: 'Avatar', cartaz: './filmes/filme1.jpeg'},
+    {id: 'mufasa', nFilme: 'Mufasa', cartaz: './filmes/filme2.jpg'},
+    {id: 'anaconda', nFilme: 'Anaconda', cartaz: './filmes/filme3.jpg'},
+    {id: 'velozes', nFilme: 'Velozes e Furiosos', cartaz: './filmes/filme4.jpg'},
+    {id: 'zootopia', nFilme: 'Zootopia 2', cartaz: './filmes/filme5.jpg'},
+    {id: 'branca', nFilme: 'Branca de Neve', cartaz: './filmes/filme6.jpg'}
+];
 
-  horario.addEventListener("click", function(event) {
-    alert("aqui")
-    SelecionaFilme(); 
-  });
-})
+function inicializaSelecao() {
+    const botoes = document.querySelectorAll('.horarios button');
 
+    botoes.forEach(botao => {
+        botao.addEventListener('click', function(e) {
+            e.stopPropagation();
+            
+            const filmeId = this.dataset.filme; 
+            const horaSelecionada = this.innerText;
 
-
-
-
-function gerarSessoes(nomeFilme, caminhoCartaz, horarios, prefixoId) {
-    return horarios.map((hora, index) => {
-        return {
-            id: `${prefixoId}${index + 1}`, // Gera hora1f1, hora2f1...
-            hora: hora,
-            filme: nomeFilme,
-            cartaz: caminhoCartaz
-        };
+            const busca = listaFilmes.find(f => f.id === filmeId);
+            
+            if (busca) {               
+                salvaFilme(horaSelecionada, busca.nFilme, busca.cartaz, busca.id);               
+            } else {
+                console.error("Filme não encontrado:", filmeId);
+            }
+        });
+    });
+    document.getElementById('btnFechar').addEventListener('click', () => {
+        sessionStorage.clear();       
+        window.location.href = "./tela1.html"; // Redireciona para o início
     });
 }
 
-function SelecionaFilme () {
-  // Seleciona todas as divs que você quer monitorar
- const divs = document.querySelectorAll('.card');
-
- divs.forEach(div => {
-    div.addEventListener('click', function(event) {          
-       const elementoClicado = event.target;        
-        // Captura o ID (se tiver)
-       const idDaDiv = elementoClicado.id; 
-      
-       const filme1 = [
-        {id:'hora1f1', hora:'10:00', filme:'Avatar',cartaz:"./filmes/filme1.jpeg"}, 
-        {id:'hora2f1', hora:'14:00', filme:'Avatar',cartaz:"./filmes/filme1.jpeg"},
-        {id:'hora3f1', hora:'16:00', filme:'Avatar',cartaz:"./filmes/filme1.jpeg"},
-        {id:'hora4f1', hora:'22:00', filme:'Avatar',cartaz:"./filmes/filme1.jpeg"}
-       ];
-
-       const filme2 = [
-        {id:'hora1f2', hora:'10:00', filme:'Mufasa',cartaz:"./filmes/filme2.jpeg"}, 
-        {id:'hora2f2', hora:'14:00', filme:'Mufasa',cartaz:"./filmes/filme2.jpeg"},
-        {id:'hora3f2', hora:'16:00', filme:'Mufasa',cartaz:"./filmes/filme2.jpeg"},
-        {id:'hora4f2', hora:'22:00', filme:'Mufasa',cartaz:"./filmes/filme2.jpeg"}
-       ];
-       
-
-       criar uma função que crie esses arrays acima automático
-
-
-      const busca = filme1.find(u => u.id === idDaDiv);
-
-      if (busca) {
-          salvaFilme(busca.hora, busca.filme,busca.cartaz,busca.id);}       
-      });
-
-    });
+function salvaFilme(horario, nFilme, cartaz, id) {  
+    try {
+        sessionStorage.setItem("sessao", horario);
+        sessionStorage.setItem("filme", nFilme);
+        sessionStorage.setItem("endereco", cartaz);
+        sessionStorage.setItem("id", id);
+        
+        irParaPagina3();
+    } catch (e) {
+        console.error("Erro ao salvar sessão:", e);
+    }
 }
 
-//salva na sessionionStorage
-function salvaFilme (horario,nFilme,cartaz, id){  
-  
-  sessionStorage.setItem("sessao", horario);
-  sessionStorage.setItem( "filme", nFilme);
-  sessionStorage.setItem("endereco", cartaz);
-  sessionStorage.setItem("id", id);
-
-  irParaPagina3();
-  console.log(nFilme);
-  //exibirModal(horario,nFilme,cartaz);
-}
-
-//Abre a tela3 para seleção das cadeiras
 function irParaPagina3() {  
-   window.location.href = "./tela3.html";
+    window.location.href = "./tela3.html";
 }
 
-//// Recuperar um dado
-//const nome = sessionStorage.getItem('usuario');
-//
-//// Remover um item específico
-//sessionStorage.removeItem('usuario');
-//
-//// Limpar tudo
-sessionStorage.clear();
+// Inicializa 
+document.addEventListener("DOMContentLoaded", inicializaSelecao);

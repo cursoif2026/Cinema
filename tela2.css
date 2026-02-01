@@ -1,11 +1,11 @@
 .grid-container {
- display: grid;
- /* Cria colunas que se ajustam automaticamente. 
-    minmax(200px, 1fr) define largura mínima de 200px e máxima flexível (1 fração do espaço disponível) */
- grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
- gap: 10px; /* Adiciona espaçamento entre os itens */
- border-radius: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); /* Ajustado para bater com a largura do card */
+  gap: 20px;
+  justify-items: center; 
+  padding: 20px;
 }
+
 
 .grid-item {
  background-color: #ddd;
@@ -28,34 +28,69 @@
  font-size: larger;
 }
 
-.cabecalho img {
- width: 2%;
-  justify-content: flex-end;
-}
-
-
 .sair{ 
  display: flex;
  justify-content: flex-end;
  justify-items: center;
- background-image: url('./filmes/iconeSair.webp');
- background-size: cover; /* Ou 'contain' para mostrar a imagem inteira */
+ 
+ background-size: cover; 
  background-position: center;
  background-repeat: no-repeat;
    
- /* Define o tamanho exato da sua imagem */
+
  width: 50px;
  height: 50px;
     
- /* Remove bordas padrão para limpar */
+
  border: none;
  cursor: pointer;
  float: right;
+
+}
+
+
+.cabecalho img {
+  width: 40px; 
+  height: auto;
 }
 
 .container{
 gap: 5px;    
 padding: 5px;
 
+}
+
+.horarios {
+    padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+}
+
+.card {
+    transition: transform 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    max-width: 270px;
+    margin: 0 auto;
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Efeito de flutuar ao passar o mouse */
+}
+
+.card-title {
+  font-size: 1.1rem; /* Título menor */
+}
+.card-body {
+  padding: 10px; /* Menos espaço interno */
+}
+#detalhesSessao {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 270px); /* Tamanho fixo menor */
+  justify-content: center; /* Centraliza o bloco de filmes */
+  gap: 15px;
+  padding: 10px;
 }
 

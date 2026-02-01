@@ -2,6 +2,7 @@ const sessao = sessionStorage.getItem('sessao');
 const qualFilme=sessionStorage.getItem('filme');
 const cartaz=sessionStorage.getItem('endereco'); 
 const idFilme=sessionStorage.getItem('id'); 
+
 const selecaoCadeiras= []
 
 function mostrarDadosFilme(){
@@ -18,41 +19,39 @@ function mostrarDadosFilme(){
 }
 
 function criarCadeiras() {
-    const container = document.getElementById("minhasCadeiras");
-    const salvosSessao = JSON.parse(sessionStorage.getItem("assentosTemporarios")) || [];
+  const container = document.getElementById("minhasCadeiras");
+  const salvosSessao = JSON.parse(sessionStorage.getItem("assentosTemporarios")) || [];
     
-    // Busca os que já foram comprados definitivamente no localStorage e marca como ocupado    
-    const ocupadosDefinitivos = JSON.parse(localStorage.getItem(idFilme)) || [];
+  // Busca os que já foram comprados definitivamente no localStorage e marca como ocupado    
+  const ocupadosDefinitivos = JSON.parse(localStorage.getItem(idFilme)) || [];
 
-    for (let i = 0; i < 5; i++) {
-        const linha = document.createElement("div");
-        linha.className = "linha";
+  for (let i = 0; i < 5; i++) {
+    const linha = document.createElement("div");
+    linha.className = "linha";
 
-        for (let y = 0; y < 5; y++) {
-            const cadeira = document.createElement("div");
-            const idAssento = `${i + 1}-${y + 1}`;
-            
-            cadeira.className = "assento";
-            cadeira.textContent = idAssento;
-            cadeira.id = idAssento;
+    for (let y = 0; y < 5; y++) {
+        const cadeira = document.createElement("div");
+        const idAssento = `${i + 1}-${y + 1}`;
+        
+        cadeira.className = "assento";
+        cadeira.textContent = idAssento;
+        cadeira.id = idAssento;
 
-            // Verificar se já está ocupado (comprado)
-            if (ocupadosDefinitivos.includes(idAssento)) {
-                cadeira.classList.add("ocupado");
-                console.log("clicou na cadeiras")
-            } 
-            // Verificar se está apenas selecionado na sessão
-            else if (salvosSessao.includes(idAssento)) {
-                cadeira.classList.add("selecionado");                
-            }
-
-            linha.appendChild(cadeira);
+        // Verificar se já está ocupado (comprado)
+        if (ocupadosDefinitivos.includes(idAssento)) {
+            cadeira.classList.add("ocupado");
+            console.log("clicou na cadeiras")
+        } 
+        // Verificar se está apenas selecionado na sessão
+        else if (salvosSessao.includes(idAssento)) {
+            cadeira.classList.add("selecionado");                
         }
-        container.appendChild(linha);
-    }    
+
+        linha.appendChild(cadeira);
+    }
+    container.appendChild(linha);
+  }    
 }
-
-
 
 
 function atualizarSessao() {
@@ -93,57 +92,57 @@ document.addEventListener("DOMContentLoaded", () => {
     criarCadeiras();      
 
     // 2. FUNÇÃO ATUALIZADA: Calcula com base no checkbox
-    function atualizarSelecao(tipoIngresso) {                            
-       
-        const selecionados = document.querySelectorAll('.assento.selecionado').length - 1;        
-        if (contador) contador.innerText = (selecionados);
-     
-        if (total) total.innerText = (selecionados * tipoIngresso).toFixed(2);       
+    function atualizarSelecao() {
+        // Conta quantos de cada tipo existem na tela
+        const qtdMeias = [...document.querySelectorAll('.assento.selecionado')].filter(a => a.innerText === 'M').length;
+        const qtdInteiras = [...document.querySelectorAll('.assento.selecionado')].filter(a => a.innerText === 'I').length;
+
+        const totalMeia = (qtdMeias * 10);
+        const totalinteira = (qtdInteiras * 20);
+        const totalCalculado = (totalMeia  + totalinteira );
+
+
+        // Atualiza os labels (IDs vindos do seu HTML anterior)
+        if (document.getElementById('totalMeia')) document.getElementById('totalMeia').innerText = `(${totalMeia.toFixed(2)})`;
+        if (document.getElementById('totaInteira')) document.getElementById('totaInteira').innerText = `(${totalinteira.toFixed(2)})`;
+        if (document.getElementById('totalGeral')) document.getElementById('totalGeral').innerText = `R$ ${totalCalculado.toFixed(2)}`;
         
-    }    
+        // Atualiza o contador de cadeiras total
+        if (document.getElementById('contador')) document.getElementById('contador').innerText = qtdMeias + qtdInteiras;
+    }
 
     const chPrecoMeia = document.getElementById('meia');
 
     // Inicializa o array com o que já estiver no session storage, se houver
     let selecaoCadeiras = JSON.parse(sessionStorage.getItem('assentosSelecionados')) || [];
 
-    // 3. EVENTO DE CLIQUE
     container.addEventListener('click', (e) => {        
+    const preco = parseFloat(document.querySelector('input[name="tipoEntrada"]:checked').value);
+    
+    if (e.target.classList.contains('assento') && !e.target.classList.contains('ocupado')) {
+        
+        e.target.classList.toggle('selecionado');
+        const cadeiraId = e.target.id;
+
+        if (e.target.classList.contains('selecionado')) {
+            // Marca visualmente o tipo no assento
+            e.target.innerText = (preco === 10) ? 'M' : "I";
             
-        // Define o preço baseado no checkbox de meia-entrada
-        const preco = (chPrecoMeia.checked) ? 10 : 20;      
-
-        // Verifica se clicou num assento e se não está ocupado
-        if (e.target.classList.contains('assento') && !e.target.classList.contains('ocupado')) {
-            
-            // Alterna a classe de seleção
-            e.target.classList.toggle('selecionado');
-
-            const cadeiraId = e.target.id;       
-
-            // Atualiza a UI e preço total (função assumida)
-            if (typeof atualizarSelecao === 'function') {
-                atualizarSelecao(preco);
+            if (!selecaoCadeiras.includes(cadeiraId)) {
+                selecaoCadeiras.push(cadeiraId);
             }
-
-            // --- LÓGICA DE SESSION STORAGE ---
-            if (e.target.classList.contains('selecionado')) {
-                // Adiciona se não estiver na lista
-                if (!selecaoCadeiras.includes(cadeiraId)) {
-                    selecaoCadeiras.push(cadeiraId);
-                    
-                }
-            } else {
-                // Remove se a classe 'selecionado' foi removida pelo toggle
-                selecaoCadeiras = selecaoCadeiras.filter(id => id !== cadeiraId);            
-                sessionStorage.removeItem(cadeiraId);
-            }
-
-            // Salva o array atualizado como string no session storage
-            sessionStorage.setItem('assentosSelecionados', JSON.stringify(selecaoCadeiras));
-            
+        } else {
+            e.target.innerText = cadeiraId;
+            selecaoCadeiras = selecaoCadeiras.filter(id => id !== cadeiraId);
         }
-    });    
+
+        // Chamamos a função de atualização sem passar o preço fixo, 
+        // pois ela vai varrer os assentos agora
+        atualizarSelecao();
+
+        sessionStorage.setItem('assentosSelecionados', JSON.stringify(selecaoCadeiras));
+    }
+});
 
     comprar.addEventListener("click", () => {    
        comprarIngresso(idFilme,selecaoCadeiras)        

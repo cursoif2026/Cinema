@@ -3,18 +3,18 @@
  justify-content: flex-end;
  justify-items: center;
  
- background-size: cover; /* Ou 'contain' para mostrar a imagem inteira */
+ background-size: cover; 
  background-position: center;
  background-repeat: no-repeat;
    
- /* Define o tamanho exato da sua imagem */
+
  width: 50px;
  height: 50px;
     
- /* Remove bordas padrão para limpar */
+
  border: none;
  cursor: pointer;
- float: right;
+ 
 }
 
 /* Detalhes do filme, valores e horarios*/
@@ -24,29 +24,36 @@
   flex-wrap: wrap;
   border-radius: 2rem;
   border: solid 2px;
-  width: 100%;
+  max-width: 800px;
   padding: 10px;
+  margin: 0 auto;
 }
+ 
 
 /* Tamanho da tela */
-.screen {
-    width: 80%;
-    margin: 0 auto;
-    box-shadow: 0 10px 10px rgba(255, 255, 255, 0.2);
-    transform: rotateX(-15deg); /* Efeito 3D */
-}
 
+.screen {
+  width: 70%;
+  height: 50px;
+  background-color: #fff;
+  margin: 20px auto;
+  transform: perspective(400px) rotateX(-45deg); /* Melhora o efeito 3D */
+  box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
+  border-bottom-left-radius: 50% 20%; /* Curvatura da tela */
+  border-bottom-right-radius: 50% 20%;
+}
 
 .separa{
   
   gap:10px;
   height: 15px;
 }
+
 .form{
   align-content: center;
   gap:10px;
-  padding: 5px;
-  width: 25%;
+  padding: 5px;  
+  min-width: 250px;
   height: 50px;
   align-items:  center;
   background-color: #ebeff3;
@@ -69,63 +76,101 @@
  padding: 10px;
 }
 
-
-
-/* Container que centraliza tudo */
 #minhasCadeiras {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    padding: 20px;
-    background-color: #1a1a1a; /* Fundo escuro estilo cinema */
-    border-radius: 8px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ gap: 10px;
+ padding: 20px;
+ background-color: #1a1a1a; 
+ border-radius: 8px;
+ perspective: 1000px;
+  
 }
 
 /* Estilo de cada linha */
 .linha {
-    display: flex;
-    gap: 10px;
+ display: flex;
+ gap: 10px;
 }
 
 .organizacao{
-  display: flex;
-  border: solid 3px;
+ display: flex;
+ border: solid 3px;
 }
 
 /* Estilo base da cadeira (assento) */
 .assento {
-    width: 40px;
-    height: 40px;
-    background-color: #444451;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 10px;
-    transition: transform 0.2s, background-color 0.2s;
+  width: 40px;
+  height: 40px;
+  background-color: #444451;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 10px;
+  transition: transform 0.2s, background-color 0.2s;
 }
 
 /* Efeito ao passar o mouse */
 .assento:hover {
-    transform: scale(1.1);
-    background-color: #40e269;
+  transform: scale(1.1);
+  background-color: #40e269;
 }
 
 /* ESTADO: Assento Selecionado */
 .assento.selecionado {
-    background-color: #6feaf6; /* Azul brilhante */
-    box-shadow: 0 0 10px #6feaf6;
-    color: #000;
+ background-color: #6feaf6; /* Azul brilhante */
+ box-shadow: 0 0 10px #6feaf6;
+ color: #000;
 }
 
 /* ESTADO: Assento já ocupado (opcional) */
 .assento.ocupado {
-    background-color: #ca3d1a; /* Vermelho brilhante */
-    box-shadow: 0 0 10px #ca3d1a;
-    background-color:  #ca3d1a;
-    cursor: not-allowed;
+  background-color: #ca3d1a; /* Vermelho brilhante */
+  box-shadow: 0 0 10px #ca3d1a;
+  background-color:  #ca3d1a;
+  cursor: not-allowed;
+}
+
+.legenda {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  gap: 20px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.legenda li {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+/* Reutiliza a classe assento para os ícones da legenda */
+.legenda .assento {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  cursor: default;
+}
+
+.horarios .btn-sm {
+  padding: 0.2rem 0.4rem; /* Diminui o respiro interno do botão */
+  font-size: 0.75rem;     /* Texto menor para os horários */
+}
+
+@media (max-width: 600px) {
+  .assento {
+    width: 30px;
+    height: 30px;
+    font-size: 8px;
+  }
+  .form {
+    width: 90%;
+  }
 }
